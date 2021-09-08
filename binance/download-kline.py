@@ -40,12 +40,12 @@ def download_monthly_klines(symbols, num_symbols, intervals, years, months, star
         for month in months:
           current_date = convert_to_date_object('{}-{}-01'.format(year, month))
           if current_date >= start_date and current_date <= end_date:
-            path = "data/spot/monthly/klines/{}/{}/".format(symbol.upper(), interval)
+            path = "./{}/{}/".format(symbol.upper(), interval)
             file_name = "{}-{}-{}-{}.zip".format(symbol.upper(), interval, year, '{:02d}'.format(month))
             download_file(path, file_name, date_range, folder)
 
             if checksum == 1:
-              checksum_path = "data/spot/monthly/klines/{}/{}/".format(symbol.upper(), interval)
+              checksum_path = "./{}/{}/".format(symbol.upper(), interval)
               checksum_file_name = "{}-{}-{}-{}.zip.CHECKSUM".format(symbol.upper(), interval, year, '{:02d}'.format(month))
               download_file(checksum_path, checksum_file_name, date_range, folder)
     
@@ -78,12 +78,12 @@ def download_daily_klines(symbols, num_symbols, intervals, dates, start_date, en
       for date in dates:
         current_date = convert_to_date_object(date)
         if current_date >= start_date and current_date <= end_date:
-          path = "data/spot/daily/klines/{}/{}/".format(symbol.upper(), interval)
+          path = "./{}/{}/".format(symbol.upper(), interval)
           file_name = "{}-{}-{}.zip".format(symbol.upper(), interval, date)
           download_file(path, file_name, date_range, folder)
 
           if checksum == 1:
-            checksum_path = "data/spot/daily/klines/{}/{}/".format(symbol.upper(), interval)
+            checksum_path = "./{}/{}/".format(symbol.upper(), interval)
             checksum_file_name = "{}-{}-{}.zip.CHECKSUM".format(symbol.upper(), interval, date)
             download_file(checksum_path, checksum_file_name, date_range, folder)
 
